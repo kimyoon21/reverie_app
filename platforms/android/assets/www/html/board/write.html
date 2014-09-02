@@ -1,0 +1,91 @@
+
+<div data-role="page" id="board_write" >
+	<div data-role="header" class="titlebar" data-position="fixed">
+		<h1>새글쓰기()</h1>	
+		<a data-icon="back" data-theme="a" data-rel="back">뒤로</a> 
+		<a data-icon="check" data-theme="b" id="btn_write_save" onclick="saveBoard()">저장</a>
+	</div>
+	<div id="board_form" data-role="content">
+		<div data-role="fieldcontain">
+			<label for="headerName" class="ui-input-text">글머리: </label>
+			<select id="headerSelect" data-icon="star" data_iconpos="left" data-inline="true" >
+				
+			</select>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="boardTitle">제목: </label>
+			<input type="text" name="boardTitle" id="boardTitle" maxlength="20" placeholder="글 제목을 입력하세요" />
+		</div>
+		<div data-role="fieldcontain">
+			<label for="boardText">내용: </label>
+			<textarea name="boardText" id="boardText" placeholder="글 내용을 입력하세요"></textarea>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="pushYn" class="ui-input-text">공지사항인가요?</label>
+			<input type="checkbox" name="pushYn" id="pushYn" />
+		</div>
+		<div data-role="fieldcontain">
+			<input type="hidden" name="attachType" id="attachType" maxlength="20"  />
+		</div>
+		
+		<!-- 설문 디비전  -->
+		<div id="vote_content" type="vote" class="hidden ui-body ui-body-c attach_div" >
+			<a onclick="gfn_closeParent(this)" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="attach_close">Close</a>
+			<!-- 내가 선택한 건 띰e  1등된건 굵은글씨에 체크박스 띰 a -->
+		  	<ul data-role="listview" data-inset = "true" id="choice_list" data-corners="true" data-iconpos="left" data-mini="true">
+			    <li data-theme="e" >
+					<a>
+						<input type="text" placeholder="선택지를 입력해주세요" />
+					</a>
+					<a  id="check_vote" data-icon="plus" data-theme="d" onclick="addChoice(this)">
+					</a>
+			    </li>
+			    <li data-theme="e" >
+					<a>
+						<input type="text" placeholder="선택지를 입력해주세요" />
+					</a>
+					<a  id="check_vote" data-icon="plus" data-theme="d" onclick="addChoice(this)">
+					</a>
+			    </li>
+		    </ul>
+		    <div data-role="fieldset" class="ui-grid-a">
+		    	<label for="expireDate">마감시간</label>
+			    <div class="ui-block-a">
+			    	<input type="date" min="1900-01-01" max="2010-08-31" step=1 name="expireDate" id="expireDate" data-mini="true"/>
+			    </div>
+			    <div class="ui-block-b">
+			    	<input type="time" step=1 name="expireTime" id="expireTime" data-mini="true"/>
+			    </div>
+			</div>
+		  	<div data-role="controlgroup" data-type="horizontal" data-theme="b">
+				<input type="checkbox" name="checkbox-multi" id="checkbox-multi" class="vote_options" data-mini="true"/>
+				<label for="checkbox-multi" >다중선택</label>
+				<input type="checkbox" name="checkbox-close" id="checkbox-close" class="vote_options" data-mini="true"/>
+				<label for="checkbox-close">익명투표</label>
+				<input type="checkbox" name="checkbox-add" id="checkbox-add" class="vote_options" data-mini="true"/>
+				<label for="checkbox-add">추가가능</label>
+			</div>
+
+		</div>
+				
+		<!-- 파일 디비전  -->
+		<div id="file_content" type="file" class='ui-body ui-body-e hidden attach_div'>
+		<a onclick="gfn_closeParent(this)" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="attach_close">Close</a>
+			<input type="file" />
+		</div>
+	</div>
+	
+	<!--네비게이션 -->
+	<!-- 
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" id="attach">
+			<ul>
+				<li><a id="menu1" data-icon="info" onclick="attachMore(this)">사진</a></li>
+				<li><a id="menu2" data-icon="grid" onclick="attachMore(this)">영상</a></li>
+				<li><a id="menu3" data-icon="star" onclick="attachMore(this)">설문</a></li>
+				<li><a id="menu4" data-icon="plus" onclick="attachMore(this)">파일</a></li>
+			</ul>
+		</div>
+	</div>
+	 -->
+</div>

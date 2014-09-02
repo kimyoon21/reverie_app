@@ -1,0 +1,45 @@
+
+<div data-role="page" id="group_list">
+	<div data-role="header" class="titlebar4" data-position="fixed">
+		<h1>그룹목록</h1>
+		<a data-icon="home" data-theme="a" href="#plus_page" data-direction="reverse" >홈</a>
+		<a data-icon="plus" data-theme="b" href="create.html">그룹생성</a>
+	</div>
+<div data-role="content">
+
+		<ul id="groupList" data-role='listview' data-filter='true'>
+			<li id='{{groupId}}' name='{{groupName}}'>
+
+      			 <h3>{{groupName}}</h3>
+      			<p>그룹인원 : {{userCount}}</p>
+      			<p>그룹소개 :{{groupText}}</p>
+      			<p class='ui-li-desc'>게시물 수 : {{boardCount}}</p>
+      			<p class="ui-li-aside">개설자 : {{adminName}}</p>
+    
+      			<input type='button' data-role='button'  onclick="goToBoardPage(this)"   id="btn_board"   data-inline="true" data-mini="true" data-theme="c" value='글보기'>
+      			<input type='button' data-role='button'  onclick="goToUserList('{{groupId}}')"   id="btn_board"  data-inline="true" data-mini="true" data-theme="c" value='멤버'>
+      			<input type='button' data-role='button' onclick="goToJoin('{{groupId}}',this)" stat='{{applyStat}}' id='btn_join'  data-inline='true' data-mini='true' data-theme="e" value='{{appBtnText}}'>
+				<span hide='{{isNotAdmin}}'>
+				<input type='button' data-role='button'  onclick="goToGroupEdit('{{groupId}}')"  id="btn_admin"  data-inline="true" data-mini="true" data-theme="b" value='관리'>
+      			 </span>
+      
+			</li>
+			</ul>
+			
+	</div>
+	<!--  
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li>
+					<a href="list.php?groupId={{groupId}}&sort=name" data-icon="forward" data-transition="turn" >이름순</a>
+				</li>
+				<li>
+					<a href="list.php?groupId={{groupId}}&sort=sno" data-icon="forward" data-transition="turn">최신순</a>
+				</li>
+			
+			</ul>
+		</div>
+	</div>
+	-->
+</div>

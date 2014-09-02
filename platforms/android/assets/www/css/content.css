@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+*[hide='true']{display:none !important;}
+.hidden {display:none;}
+/* 제이쿼리모바일css 덮어쓰기
+ ------------------------------------------------ */
+.ui-li-aside{width:auto;}
+.ui-body{word-wrap: break-word;}
+ .center-button .ui-btn{width:150px;margin:auto !important;}
+  .comment-header{margin:0px;padding:2px;}
+ .comment-header .ui-block-a{width:20%; min-width: 70px;}
+ .comment-header .ui-block-b{width:60%;}
+  /*.comment-header .ui-block-b .ui-input-text{width:100%;}*/
+ .comment-header .ui-block-c{width:15%;}
+/* 리스트뷰 페이지
+ ------------------------------------------------ */
+div.count{color:#39F;font-weight:bold;}
+
+div#comment_div .ui-link-inherit{min-height: initial;
+								padding-left: 60px;
+								padding-top: 5px;
+								word-wrap: break-word;
+								white-space: normal;
+								
+								}
+
+#btn_like {margin:5px;}
+#btn_like.liked{margin:5px; color:#fff; border-color:#1CA1EC;text-shadow: 0 1px 0 #194b7e;}
+#btn_like.liked span{background-color:#459BDF;}
+div#comment_div #cmt_name{font-size:10px;padding:1px;}
+li.comment .cmt_img {border:1px solid #cdf;width:50px;height:50px;}
+li.comment .cmt_name {font-size:11px;}
+li.comment .cmt_txt {font-size:10px; margin-top:0.3em; line-height:0.8em;}
+li.comment .cmt_date{font-size:9px; text-align:right; margin:0;}
+
+.board_list{margin:6px  !important;border-width:1px}
+.profile_pic{width:80px;height:80px;max-width:80px !important;max-height:80px;padding: 11px; }
+
+.not-a{cursor:initial;}
+
+/* 설문  vote_view.html
+ ------------------------------------------------ */
+ .attach_div{overflow:visible;}
+.attach_close{ position: absolute;
+top: -15px;
+z-index: 999;
+left: 96%;}
+/* 개인룸 페이지 room.html
+ ------------------------------------------------ */
+ #popupPanel-popup {
+    right: 0 !important;
+    left: auto !important;
+}
+#popupPanel {
+    width: 200px;
+    border: 1px solid #000;
+    border-right: none;
+    background: rgba(0,0,0,.5);
+    margin: -1px 0;
+}
+#popupPanel .ui-btn {
+    margin: 2em 15px;
+}

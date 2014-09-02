@@ -1,0 +1,60 @@
+
+<!-- 설문 뷰 페이지  -->
+
+<div data-role="page" id="vote_write" >
+	<div data-role="header" class="titlebar2" data-position="fixed">
+		<h1>설문 보기</h1>
+		<a data-icon="back" data-theme="b" onclick="goToBoardList()" data-direction="reverse" class="ui-btn-left">목록</a>
+	</div>
+	<div data-role="content" >
+		<div id="boardTitle" class='ui-bar ui-bar-a'>
+			{{boardData.boardTitle}}
+		</div>
+		<div id="boardContent" class='ui-body ui-body-e'>
+			작성자: {{boardData.regUserName}}<br/>
+			작성일시: {{boardData.regDate}}<br/>
+			<p> 수정일시: {{boardData.chgDate}} </p>
+			<hr />
+			{{boardData.boardText}}
+			
+			<!-- 설문 -->
+			<div id="vote_content" class='ui-body ui-body-c'>
+				
+				<!-- 내가 선택한 건 띰e  1등된건 굵은글씨에 체크박스 띰 a -->
+			  	<ul data-role="listview" data-inset = "true" id="choice_list" data-corners="true" data-iconpos="left" data-mini="true">
+				    <li data-theme="e" >
+						<a>
+							<input type="text" placeholder="선택지를 입력해주세요" />
+						</a>
+						<a  id="check_vote" data-icon="plus" data-theme="d" onclick="addChoice(this)">
+						</a>
+				    </li>
+				    <li data-theme="e" >
+						<a>
+							<input type="text" placeholder="선택지를 입력해주세요" />
+						</a>
+						<a  id="check_vote" data-icon="plus" data-theme="d" onclick="addChoice(this)">
+						</a>
+				    </li>
+			    </ul>
+			    <div data-role="fieldset" class="ui-grid-a">
+			    	<label for="expireDate">투표마감</label>
+				    <div class="ui-block-a">
+				    	<input type="date" min="1900-01-01" max="2010-08-31" step=1 name="expireDate" id="expireDate" data-mini="true"/>
+				    </div>
+				    <div class="ui-block-b">
+				    	<input type="time" step=1 name="expireTime" id="expireTime" data-mini="true"/>
+				    </div>
+				</div>
+			    <div data-role="controlgroup" data-type="horizontal" data-theme="b">
+					<input type="checkbox" name="checkbox-1" id="checkbox-multi" class="custom" data-mini="true"/>
+					<label for="checkbox-multi">단일선택</label>
+					<input type="checkbox" name="checkbox-2" id="checkbox-close" class="custom" data-mini="true"/>
+					<label for="checkbox-close">이름공개</label>
+					<input type="checkbox" name="checkbox-3" id="checkbox-add" class="custom" data-mini="true"/>
+					<label for="checkbox-add">추가불가</label>
+				</div>
+			</div>
+		</div>
+	
+</div>

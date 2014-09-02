@@ -1,0 +1,38 @@
+
+<!-- 회원 리스트 -->
+<div data-role="page" id="user_page">
+	<div data-role="header" class="titlebar5" data-position="fixed">
+		<h1>{{curGroupName}} ({{users.length}}명)</h1>
+		<a data-icon="back" data-theme="a" data-rel="back">뒤로</a> 
+	</div>
+	<div data-role="content" >
+		<ul id="user_list" data-role='listview' data-filter='true' scrolling="no">
+		
+	      	<li >
+           		<a onclick="goToUserRoom({{userId}})">
+        			<img src = "../file/user/{{userId}}/{{userId}}_JPG" alt ="프로필사진" class="profile_pic"/>
+        			<h3>{{userName}}({{userId}})</h3>
+        			<p>{{userSno}}기</p>
+        			<p >{{userGrade}}학번</p>
+        			<p>{{userText}}&nbsp;</p>
+        		</a>
+        	</li>
+	      	
+		</ul>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li>
+					<a onclick="changeSort('name')" data-icon="forward" >이름순</a>
+				</li>
+				<li>
+					<a onclick="changeSort('grade')" data-icon="forward">기수순</a>
+				</li>
+				<li>
+					<a onclick="changeSort('id')" data-icon="forward" >학번순</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

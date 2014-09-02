@@ -1,0 +1,66 @@
+
+<!-- 보드 뷰ㅜ페이지  -->
+
+<div data-role="page" id="board_view" >
+	<div data-role="header" class="titlebar2" data-position="fixed">
+		<h1>게시글 보기</h1>
+		<a data-icon="back" data-theme="b" onclick="goToBoardList()" data-direction="reverse" class="ui-btn-left">목록</a>
+	</div>
+	<div data-role="content" >
+		<div id="boardTitle" class='ui-bar ui-bar-a'>
+			{{boardData.boardTitle}}
+		</div>
+		<div id="boardContent" class='ui-body ui-body-b'>
+			작성자: {{boardData.regUserName}}<br/>
+			작성일시: {{boardData.regDate}}<br/>
+			<p> 수정일시: {{boardData.chgDate}} </p>
+			<hr />
+			{{boardData.boardText}}
+		</div>
+       <div data-role="fieldcontain"  class="ui-bar ui-bar-d comment-header" >
+	    	 <div data-role="fieldset" class="ui-grid-b">
+				    <div class="ui-block-a">
+		  				<a id="btn_like" data-role="button" data-icon="star" data-theme="c" href="#" onclick="like()" data-mini="true" data-inline="true" class="ui-btn-left" >Like</a>
+					</div>
+				  	<div class="ui-block-b">
+		  				<input type="text" id="newCmtText" maxlength="128"  placeholder="댓글을 입력해보시지" onkeydown="javascript:if (event.keyCode == 13) writeComment();" />
+					</div>
+					<div class="ui-block-c">
+						<a class="{{liked}}" data-inline="true" data-role="button" onclick="writeComment()"  data-mini="true" href="#" data-shadow="true" >입력</a>
+					</div>
+				</div>
+	  	</div>
+	
+	 	<div id="comment_div">
+		  	<ul data-role="listview" data-inset = "true" id="comment_list" style="margin:0 0 0 0;  overflow: hidden;" data-corners="false" data-icon="star" >
+		      <li class="comment" comment-no={{commentNo}}>
+		      		<a class="not-a">
+		      			<img class="cmt_img" src="../../img/profile.png" id="mini_profile" uid="{{userId}}" alt ="프로필사진"/>
+			            <div class ="cmt_name">{{userName}}</div> 
+			            <div class="cmt_txt" >{{commentText}}</div>            
+			            <p class="cmt_date">{{commentRegDate}}</p>
+		      		</a>
+		      		<a href="#" id="del_comment" onclick="deleteComment(this)" data-icon="delete">
+		      		</a>
+		      </li>
+		    </ul>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed" >
+		<div data-role="navbar">
+			<ul>
+				<li>
+					<a data-icon="edit" id='edit_board' onclick="goToModify()">수정</a>
+				</li>
+				<li>
+					<a data-icon="delete" data-role="actionsheet" data-sheet='delete_password'>삭제</a>
+					<form id='delete_password'>
+						<div class="ui-bar ui-bar-a">해당 글을 삭제하시겠습니까?</div>
+						<a data-role='button' id="btn_delete" data-mini="true" data-theme="b" onclick="deleteBoard()">OK</a>
+						<a data-role='button' data-rel='close' data-mini="true">Cancel</a>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

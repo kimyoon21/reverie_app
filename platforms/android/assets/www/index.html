@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+ 	   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="shortcut icon" href="img/icon.png">
+	<link rel="stylesheet" href="framework/jquery.mobile-1.3.2.css"/>
+	<link rel="stylesheet" href="css/content.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="framework/plugin/actionsheet/jquery.mobile.actionsheet.css" />
+
+    <script src="framework/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/template.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="framework/jquery.mobile-1.3.2.js"></script>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/push_handler.js"></script>
+    <script type="text/javascript" src="js/board.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/page.js"></script>
+    <script type="text/javascript" src="js/group.js"></script>
+
+
+        <!-- action sheet plugin 스크립트 참조 -->
+	<script type="text/javascript" src="framework/plugin/actionsheet/jquery.mobile.actionsheet.js"></script>
+       
+</head>
+
+ 
+    
+<body>
+
+ <!-- 뉴스피드 리스트 -->
+<div data-role="page" id="news_page" scrolling="no">
+	<div data-role="header" class="titlebar2" data-position="fixed">
+		<h1>레버리뉴스</h1>
+		<a data-icon="grid" data-theme="a" onclick="refreshNotices()" data-position-to="origin">새로고침</a>
+		<div data-role="navbar" id="navigation">
+			<ul>
+				<li><a  id="menu1" data-icon="info">뉴스</a></li>
+				<li><a  id="menu2" data-icon="grid">게시판</a></li>
+				<li><a  id="menu3" data-icon="star">창고</a></li>
+				<li><a  id="menu4" data-icon="plus">더보기</a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="content">
+	<!-- newsfeed template -->
+	       <ul id = 'feed_list' data-role='listview'>    
+            <li class="board_list" >
+           		<a onclick="getBoard({{boardNo}})">
+	                <h3 >{{boardTitle}}</h3>
+	                 <p class="ui-li-aside"><b>[{{groupName}}]<br />{{regUserName}}</b><br />{{regDate}}</p>
+	                <p class='ui-li-desc'>{{boardText}}</p>
+	                <div class="count">
+	                    <p class='ui-li-desc'>좋아요 {{likeCnt}}명 &nbsp 댓글 {{commentCnt}}개</p>
+	                </div>
+               </a>
+            </li>
+        </ul>
+  	</div>
+   
+ </div>
+ 
+ <!-- 게시판 리스트 -->
+<div data-role="page" id="board_page" >
+	<div data-role="header" class="titlebar2" data-position="fixed">
+		<h1 id="boardGroupName">게시판</h1>
+		<a data-icon="grid" data-theme="a" data-rel="popup" href="#groupPopup" data-position-to="origin">그룹</a>
+		<a data-icon="plus" data-theme="a" onclick="goToWrite()">쓰기</a>
+		<div data-role="navbar" id="navigation">
+			<ul>
+				<li><a  id="menu1" data-icon="info">뉴스</a></li>
+				<li><a  id="menu2" data-icon="grid">게시판</a></li>
+				<li><a  id="menu3" data-icon="star">창고</a></li>
+				<li><a  id="menu4" data-icon="plus">더보기</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 그룹팝업 -->
+	<div data-role="popup" id="groupPopup">
+		<ul id="group_list_popup" data-role="listview" data-inset="true" data-theme="b">
+			
+			<!-- 
+			<li>
+				<a onclick="changeBoardGroup('{{groupId}}','{{groupName}}')">{{groupName}}</a>
+			</li> 
+			 -->
+		</ul>
+	</div>
+	
+	<!-- 게시글 -->
+    <div data-role="content">
+        <ul id = 'board_list' data-role='listview' data-filter='true'>    
+            <li class="board_list" >
+             	<a onclick="getBoard({{boardNo}})">
+	                <h3 >[{{headerName}}] {{boardTitle}}</h3>  
+	                <p class="ui-li-aside">{{regUserName}}<br />{{regDate}}</p>
+	                <p class='ui-li-desc'>{{boardText}}</p>
+	                <div class="count">
+	                    <p class='ui-li-desc'>좋아요 {{likeCnt}}명 &nbsp 댓글 {{commentCnt}}개</p>
+	                </div>
+               </a>
+            </li>
+        </ul>
+    </div>
+
+ 
+</div>
+
+
+ <!--  페이지 -->
+<div data-role="page" id="link_page">
+	<div data-role="header" class="titlebar2" data-position="fixed">
+		<h1>자료창고</h1>
+		<a data-icon="home" data-theme="a" href="#news_page" data-direction="reverse" >홈</a>
+		<a data-icon="plus" data-theme="a" href="write.html?gid={{groupId}}">쓰기</a>
+		<div data-role="navbar" id="navigation">
+			<ul>
+				<li><a  id="menu1" data-icon="info">뉴스</a></li>
+				<li><a  id="menu2" data-icon="grid">게시판</a></li>
+				<li><a  id="menu3" data-icon="star">창고</a></li>
+				<li><a  id="menu4" data-icon="plus">더보기</a></li>
+			</ul>
+		</div>
+	</div>
+    <div data-role="content">
+       <ul class="list_box">
+       	<li>
+       	이곳에는 차후에 여러가지 페이지들이 링크 될 예정입니다.
+       	</li>
+       </ul>
+    
+
+	</div>
+	
+</div>
+
+ <!-- 더보기 -->
+<div data-role="page" id="plus_page">
+	<div data-role="header" class="titlebar2" data-position="fixed">
+		<h1>추가기능</h1>
+		<a data-icon="home" data-theme="a" href="#news_page" data-direction="reverse" >홈</a>
+		
+		<div data-role="navbar" id="navigation">
+			<ul>
+				<li><a  id="menu1" data-icon="info">뉴스</a></li>
+				<li><a  id="menu2" data-icon="grid">게시판</a></li>
+				<li><a  id="menu3" data-icon="star">창고</a></li>
+				<li><a  id="menu4" data-icon="plus">더보기</a></li>
+			</ul>
+		</div>
+	</div>
+	 <div data-role="content">
+		 <div data-role="navbar" id="moremenu">
+				<ul>
+					<li><a onclick="goToMyData()" data-icon="info" >내정보</a></li>
+				</ul>
+				<ul>
+					<li><a href="#" onclick="goToUserList('0000')" data-icon="grid">회원목록</a></li>
+					<li><a href="#" onclick="goToGroupList()" data-icon="grid">그룹목록</a></li>
+				</ul>
+				<ul>
+					<li><a onclick="logout()" data-icon="minus">로그아웃</a></li>
+				</ul>
+				<ul>
+					<li><a href="#" data-icon="gear" >설정(미완)</a></li>
+				</ul>
+		</div>
+	 </div>
+
+</div>
+
+
+
+</body>
+</html>

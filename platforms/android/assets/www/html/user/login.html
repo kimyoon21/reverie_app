@@ -1,0 +1,23 @@
+
+<!-- 로그인 페이지 ID=loginPage -->
+<div data-role="page" id="user_login" class="type-home" >
+	<div data-role="header" class="titlebar3" data-position="fixed">
+		<h1>로그인</h1>
+	
+		<a data-icon="plus" data-theme="a" onclick="goToUserReg()">가입</a>
+	</div>
+  <div data-role="content"> 
+    <div data-role="fieldcontain" class="ui-hide-label">
+    	<div data-role="fieldcontain" >
+	    	<label for="loginid">학번 </label>
+	    	<input type="tel" name="loginid" id="loginid"  placeholder="8자리 학번" />
+    	</div>
+    	<div data-role="fieldcontain" >
+	    	<label for="loginpw">비밀번호 </label>
+	    	<input type="password" name="loginpw" id="loginpw" placeholder="PASSWORD" />
+		</div>
+        <button id='loginout' data-role='button' data-inline='false' data-theme='e' onclick="login()" >로그인</button>
+
+    </div>	
+  </div>
+</div>

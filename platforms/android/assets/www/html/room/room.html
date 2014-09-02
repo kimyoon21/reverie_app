@@ -1,0 +1,42 @@
+
+<!--룸 -->
+<div data-role="page" id="user_room">
+	<div data-role="header" class="titlebar5" data-position="fixed">
+		<h1>{{userName}}님의 방</h1>
+		<a data-icon="back" data-theme="a" data-rel="back">뒤로</a>
+		<a data-icon="plus" data-theme="a" data-rel="back">방명록</a> 
+	</div>
+	<div id="room_info">
+			<div>
+				<img src = "">
+				<p>사진</p>
+			</div>
+			<div>
+				<p>정보</p>
+			</div>
+			<div>
+				<p>일정</p>
+			</div>
+		</div>
+	<div data-role="content">
+		<div id="room_contents"> 
+			<ul id = 'personal_list' data-role='listview'>    
+	            <li class="personal_list" >
+	            <!-- 
+	           		게시판과 방명록 섞어서 시간순서대로 , 월별로 리스트 디바이더 넣기
+	            -->
+	             	<a onclick="if({{type}}=='board')getBoard({{boardNo}})">
+		                <h3 >{{logTitle}}</h3>  
+		                <p class="ui-li-aside">{{regUserName}}<br />{{regDate}}</p>
+		                <p class='ui-li-desc'>{{logText}}</p>
+		                <div class="count">
+		                    <p class='ui-li-desc'>댓글 {{commentCnt}}개</p>
+		                </div>
+	               </a>
+	            </li>
+	        </ul>
+		</div>
+	
+        
+    </div>
+</div>

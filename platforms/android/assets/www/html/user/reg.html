@@ -1,0 +1,81 @@
+
+<!-- 신규 유저 등록 페이지 -->
+<div data-role="page" id="user_reg" >
+	<div data-role="header" class="titlebar" data-position="fixed">
+		<h1>회원등록</h1>
+		<a data-icon="back" data-theme="a" data-rel="back">뒤로</a>
+		<a data-icon="check" id="register_button" data-theme="b" onclick="userSave()">등록<!-- 수정 --></a>
+	</div>
+		<div data-role="content">
+		<div data-role="fieldcontain" >
+			<label for="uid">학번(8자리): </label>
+			<input type="tel"  maxlength="8" required name="uid" id="userId" placeholder="학번을 입력하세요"  />
+		</div>
+		<div data-role="fieldcontain">
+			<label for="usrnm">이름: </label>
+			<input type="text" maxlength="10" required name="usrnm" id="userName" placeholder="이름을 입력하세요" />
+		</div>
+
+		<div data-role="fieldcontain">
+			<label for="usrpw" id="pass_label">비밀번호: </label>
+			<input type="password" maxlength="15" name="usrpw" id="userPw" placeholder="비밀번호를 입력하세요"/>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="userpwchk">비밀번호 확인: </label>
+			<input type="password" name="userpwchk" maxlength="15" id="userPwChk" placeholder="비밀번호를 다시 입력하세요" />
+		</div>
+		<div data-role="fieldcontain">
+			<label for="usrsno">기수: </label>
+			<input type="number" name="usrsno" required id="userSno" placeholder="기수를 입력하세요"/>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="usrsex" class="ui-input-text">성별: </label>
+			<select data-icon="star" data_iconpos="left" id="userSex" data-inline="true" >
+				<option value="M">남자</option>
+				<option value="F">여자</option>
+			</select>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="usrbth">생년월일: </label>
+			<input type="date" min="1900-01-01" max="2010-08-31" step=1 name="usrbth" id="userBirth" placeholder="생년월일을 입력하세요"/>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="usrnum">전화번호: </label>
+			<input type="tel" name="usrnum" maxlength="11" id="userTelNo" placeholder="전화번호를 입력하세요"  />
+		</div>
+			<div data-role="fieldcontain">
+			<label for="usraddr">주소: </label>
+			<input type="text" name="usraddr" id="userAddr" placeholder="주소를 입력하세요"/>
+		</div>
+			<div data-role="fieldcontain">
+			<label for="usremail">이메일: </label>
+			<input type="email" name="usremail" required maxlength="30" id="userEmail" placeholder="이메일을 입력하세요" />
+		</div>
+		<div data-role="fieldcontain">
+			<label for="usrtxt"  class="ui-input-text">자기소개: </label>
+			<textarea name="usrtxt" id="userText" placeholder="자기소개를 입력하세요" ></textarea>
+		</div>
+
+	</div>
+	<div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+	</div>
+<div data-role="popup" id="popupPassWd">
+	<form >
+		
+		<div data-theme="a" data-role="content" style="padding:10px 20px;">
+			
+			<h3>현재 비밀번호를 입력하세요</h3>
+		
+			<input id='oldPassWd' type='password' placeholder='비밀번호를 입력하세요.'/>
+			<a data-role='button'  onclick="editUser()" id="btn_delete" data-mini="true" data-theme="b">OK</a>
+			<a data-role='button'   data-rel='back' data-mini="true">Cancel</a>
+		</div>
+	</form>
+</div>					
+</div>
+

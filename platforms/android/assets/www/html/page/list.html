@@ -1,0 +1,32 @@
+
+<div data-role="page" id="page_list">
+	<div data-role="header" class="titlebar2" data-position="fixed">
+		<h1> 게시판({{page}}/{{totalPages}})</h1>
+		<a data-icon="home" data-theme="a" href="#index" data-direction="reverse" >홈</a>
+		<a data-icon="plus" data-theme="b" href="write.html?gid={{groupId}}">쓰기</a>
+	</div>
+	<ul>
+         	
+        <li  ng-repeat="item in resultList">
+            <a href="view.php?gid={{item.groupId}}&brdno={{item.boardId}}&page={{item.page}}">
+                <h3>{{item.boardTitle}}</h3>       		
+                <p class="ui-li-aside">{{item.regUserName}}<br />{{item.regDate}}</p>
+                <p>{{item.boardText}}</p>
+                <div class="count">
+                    <p>좋아요 {{item.likeCnt}}건</p>
+                    <p>댓글 {{item.commentCnt}}개</p>
+                </div>
+            </a>
+        </li>
+
+	</ul>
+ <p>{{someText.message}}</p>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+
+			
+			</ul>
+		</div>
+	</div>
+</div>
+

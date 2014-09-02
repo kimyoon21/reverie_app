@@ -1,0 +1,51 @@
+
+<div data-role="page" id="group_edit">
+	<div data-role="header" class="titlebar4" data-position="fixed">
+		<h1>그룹관리</h1>
+		<a data-icon="back" data-theme="a" data-rel="back">뒤로</a>
+		<a data-icon="check" data-theme="b" id="btn_edit_save">저장미완</a>
+	</div>
+	<div data-role="content" id="group_form">
+		
+		<div data-role="fieldcontain">
+			<label for="groupName">그룹이름: </label>
+			<input type="text" name="groupName" id="groupName" placeholder="그룹이름을 입력하세요"/>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="adminUid">관리자: </label>
+			<input type="text" name="adminUid" id="adminUid" />
+		</div>
+		<div data-role="fieldcontain">
+			<label for="secretYn">비밀여부: </label>
+			<select name="secretYn" id="secretYn" data-icon="star" data_iconpos="left" data-inline="true" >
+			  <option value = "N">공개</option>
+	      <option value = "Y">비공개</option>
+	    </select>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="grptxt">그룹소개: </label>
+			<textarea name="groupText" id="groupText" placeholder="자기소개을 입력하세요"></textarea>
+		</div>
+		<input type="hidden" name="gid" id="gid" value='{{groupId}}' />
+
+	
+		<hr/>
+	
+		  <div class="ui-bar ui-bar-b" style="margin:0 0 0 0; ">  
+		    가입신청자 목록
+		  </div>
+		  <div>
+			  <ul id="waiting_list" data-role="listview" data-inset = "true"  style="margin:0 0 0 0; " >
+			      
+			      <li data-icon="check">
+			      		<a onclick="fn_approve('{{groupId}}','{{userId}}',this)" id="list_approve" >
+			      			<img src = "../file/user/{{userId}}/{{userId}}_jpg" alt ="프로필사진"/>
+			            <h4>{{userName}}</h4>
+			            <p>신청일자 : {{joinDate}}</p>
+			            <p id="app_text" class="ui-li-aside">승인대기</p>
+			      		</a>
+			      </li>
+			 </ul>
+ 		</div>
+ 	</div>
+  </div>  
